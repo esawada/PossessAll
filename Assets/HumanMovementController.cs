@@ -7,7 +7,7 @@ public class HumanMovementController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     public float speed = 1;
     public float jumpForce = 1;
-    public bool isJumping = true;
+    public bool isJumping;
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();

@@ -5,24 +5,25 @@ using UnityEngine;
 
 public class Grounded : MonoBehaviour
 {
-    private HumanMovementController human;
+    private HumanMovementController _humanMovementController;
     void Start()
     {
-        human = gameObject.transform.parent.gameObject.GetComponent<HumanMovementController>();
+        _humanMovementController = gameObject.transform.parent.gameObject.GetComponent<HumanMovementController>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Ground"))
         {
-            human.isJumping = false;
+            _humanMovementController.isJumping = false;
         }
     }
-    private void OnCollisionExit(Collision collision)
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Ground"))
         {
-            human.isJumping = true;
+            _humanMovementController.isJumping = true;
         }
     }
 }
